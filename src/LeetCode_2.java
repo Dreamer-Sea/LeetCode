@@ -1,13 +1,11 @@
 public class LeetCode_2 {
-
-    public static void main(String[] args) {
-
-
-    }
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2){
+        if (l1 == null && l2 == null) return null;
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+
         int carry = 0;
-        ListNode dummy = new ListNode(0), p = dummy;
+        ListNode dummy = new ListNode(-1), p = dummy;
         while (l1 != null || l2 != null || carry != 0){
             int sum = 0;
             if (l1 != null){
@@ -18,7 +16,6 @@ public class LeetCode_2 {
                 sum += l2.val;
                 l2 = l2.next;
             }
-
             sum += carry;
             carry = sum / 10;
             p.next = new ListNode(sum % 10);
