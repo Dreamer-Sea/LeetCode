@@ -2,23 +2,22 @@ public class LeetCode_234 {
     public boolean isPalindrome(ListNode head){
         if (head == null || head.next == null) return true;
 
-        ListNode slow = head, fast = head.next, pre = null, prepre = null;
+        ListNode fast = head.next, slow = head, pre = null, prepre = null;
         while (fast != null && fast.next != null){
             pre = slow;
-            slow = slow.next;
             fast = fast.next.next;
+            slow = slow.next;
             pre.next = prepre;
             prepre = pre;
         }
-        ListNode p2 = slow.next;
+        ListNode n2 = slow.next;
         slow.next = pre;
-        ListNode p1 = fast == null ? slow.next : slow;
-        while (p1 != null){
-            if (p1.val != p2.val) return false;
-            p1 = p1.next;
-            p2 = p2.next;
+        ListNode n1 = fast == null ? slow.next : slow;
+        while (n1 != null && n2 != null){
+            if (n1.val != n2.val) return false;
+            n1 = n1.next;
+            n2 = n2.next;
         }
-
         return true;
     }
 }

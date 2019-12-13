@@ -4,8 +4,8 @@ public class LeetCode_2 {
         if (l1 == null) return l2;
         if (l2 == null) return l1;
 
-        int carry = 0;
         ListNode dummy = new ListNode(-1), p = dummy;
+        int carry = 0;
         while (l1 != null || l2 != null || carry != 0){
             int sum = 0;
             if (l1 != null){
@@ -21,6 +21,7 @@ public class LeetCode_2 {
             p.next = new ListNode(sum % 10);
             p = p.next;
         }
+
         return dummy.next;
     }
 }

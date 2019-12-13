@@ -4,16 +4,15 @@ public class LeetCode_92 {
 
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
-        ListNode prev = dummy;
+        ListNode pre = dummy;
         for (int i = 0; i < m - 1; i++){
-            prev = prev.next;
+            pre = pre.next;
         }
-
-        ListNode cur = prev.next, post = cur.next;
+        ListNode cur = pre.next, post = cur.next;
         for (int i = 0; i < n - m; i++){
             cur.next = post.next;
-            post.next = prev.next;
-            prev.next = post;
+            post.next = pre.next;
+            pre.next = post;
             post = cur.next;
         }
 
