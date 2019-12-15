@@ -4,27 +4,27 @@ public class LeetCode_148 {
 
         ListNode fast = head.next, slow = head;
         while (fast != null && fast.next != null){
-            fast = fast.next.next;
             slow = slow.next;
+            fast = fast.next.next;
         }
         ListNode tmp = slow.next;
         slow.next = null;
-        ListNode left = sortList(head);
-        ListNode right = sortList(tmp);
-        ListNode res = new ListNode(-1), h = res;
-        while (left != null && right != null){
-            if (left.val < right.val){
-                h.next = left;
-                left = left.next;
+        ListNode lNode = sortList(head);
+        ListNode rNode = sortList(tmp);
+        ListNode dummy = new ListNode(-1), p = dummy;
+        while (lNode != null && rNode != null){
+            if (lNode.val < rNode.val){
+                p.next = new ListNode(lNode.val);
+                lNode = lNode.next;
             }else{
-                h.next = right;
-                right = right.next;
+                p.next = new ListNode(rNode.val);
+                rNode = rNode.next;
             }
-            h = h.next;
+            p = p.next;
         }
-        if (left == null) h.next = right;
-        if (right == null) h.next = left;
+        if (lNode == null) p.next = rNode;
+        if (rNode == null) p.next = lNode;
 
-        return res.next;
+        return dummy.next;
     }
 }
