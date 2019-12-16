@@ -1,6 +1,6 @@
 public class LeetCode_142 {
-
     public ListNode detectCycle(ListNode head){
+        if (head == null || head.next == null) return null;
         ListNode fast = head, slow = head;
         boolean flag = false;
         while (fast != null && fast.next != null){
