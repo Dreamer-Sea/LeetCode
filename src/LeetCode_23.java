@@ -1,7 +1,7 @@
 public class LeetCode_23 {
     public ListNode mergeKLists(ListNode[] lists){
         if (lists.length == 0) return null;
-        return solve(lists, 0, lists.length - 1);
+        return solve(lists, 0, lists.length-1);
     }
 
     private ListNode solve(ListNode[] arr, int left, int right){
