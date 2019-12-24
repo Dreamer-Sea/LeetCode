@@ -1,5 +1,5 @@
 public class LeetCode_567 {
-    public boolean checkInclusion(String s1, String s2){
+    public boolean checkInclusion(String s1, String s2) {
         if (s1.length() > s2.length()) return false;
         int[] dict1 = new int[26], dict2 = new int[26];
         for (int i = 0; i < s1.length(); i++){
