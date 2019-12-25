@@ -2,15 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LeetCode_93 {
-    public List<String> restoreIpAddresses(String s) {
+    public List<String> restoreIpAddresses(String s){
         List<String> res = new ArrayList<>();
         if (s == null || s.length() == 0) return res;
         backtracking(res, s, new StringBuilder(), 0, 0);
         return res;
     }
 
-    private void backtracking(List<String> res, String ip, StringBuilder restored, int idx, int count){
-        if (ip.length() - idx > 3 * (4 - count)) return;
+    private void backtracking(List<String> res, String ip, StringBuilder restored, int count, int idx){
+        if ((ip.length() - idx) > 3 * (4 - count)) return;
         if (count == 4 && ip.length() == idx){
             res.add(restored.toString());
             return;
@@ -23,7 +23,7 @@ public class LeetCode_93 {
             int originLen = restored.length();
             restored.append(s);
             restored.append((count == 3) ? "" : ".");
-            backtracking(res, ip, restored, idx+i, count+1);
+            backtracking(res, ip, restored, count+1, idx+i);
             restored.setLength(originLen);
         }
     }
