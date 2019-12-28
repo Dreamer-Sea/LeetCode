@@ -1,9 +1,10 @@
 public class LeetCode_14 {
     public String longestCommonPrefix(String[] strs){
-        if (strs.length == 0) return "";
+        if (strs == null || strs.length == 0) return "";
         int minLen = strs[0].length();
         for (int i = 1; i < strs.length; i++){
-            minLen = Math.min(minLen, strs[i].length());
+            if (minLen > strs[i].length())
+                minLen = strs[i].length();
         }
         int low = 1, high = minLen;
         while (low <= high){
