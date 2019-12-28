@@ -14,7 +14,7 @@ public class LeetCode_60 {
             fact /= (n - i);
             int idx = k / fact;
             builder.append(nums.remove(idx));
-            k -= idx * fact;
+            k -= fact * idx;
         }
         return builder.toString();
     }

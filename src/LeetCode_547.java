@@ -1,10 +1,4 @@
 public class LeetCode_547 {
-
-    public static void main(String[] args) {
-        LeetCode_547 p = new LeetCode_547();
-        System.out.println(p.findCircleNum(new int[][]{{1,0,0,1}, {0,1,1,0}, {0,1,1,1}, {1,0,1,1}}));
-    }
-
     public int findCircleNum(int[][] M){
         int[] visited = new int[M.length];
         int count = 0;
