@@ -1,28 +1,26 @@
-import java.util.Stack;
+import java.util.*;
 
 public class LeetCode_445 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2){
-        Stack<Integer> s1 = new Stack<>();
-        Stack<Integer> s2 = new Stack<>();
-
-        ListNode p = l1;
-        while (p != null){
-            s1.push(p.val);
-            p = p.next;
+        Stack<Integer> n1 = new Stack<>();
+        Stack<Integer> n2 = new Stack<>();
+        while (l1 != null) {
+            n1.push(l1.val);
+            l1 = l1.next;
         }
-        p = l2;
-        while (p != null){
-            s2.push(p.val);
-            p = p.next;
+        while (l2 != null){
+            n2.push(l2.val);
+            l2 = l2.next;
         }
-        ListNode head = null;
         int carry = 0;
-        while (!s1.isEmpty() || !s2.isEmpty() || carry != 0){
-            int sum = carry;
-            if (!s1.isEmpty()) sum += s1.pop();
-            if (!s2.isEmpty()) sum += s2.pop();
-            ListNode node = new ListNode(sum % 10);
+        ListNode head = null;
+        while (!n1.isEmpty() || !n2.isEmpty() || carry != 0){
+            int sum = 0;
+            if (!n1.isEmpty()) sum += n1.pop();
+            if (!n2.isEmpty()) sum += n2.pop();
+            sum += carry;
             carry = sum / 10;
+            ListNode node = new ListNode(sum % 10);
             node.next = head;
             head = node;
         }

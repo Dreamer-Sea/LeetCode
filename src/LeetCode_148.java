@@ -1,11 +1,12 @@
+import java.util.List;
+
 public class LeetCode_148 {
     public ListNode sortList(ListNode head){
         if (head == null || head.next == null) return head;
-
         ListNode fast = head.next, slow = head;
         while (fast != null && fast.next != null){
-            slow = slow.next;
             fast = fast.next.next;
+            slow = slow.next;
         }
         ListNode tmp = slow.next;
         slow.next = null;
@@ -24,7 +25,6 @@ public class LeetCode_148 {
         }
         if (lNode == null) p.next = rNode;
         if (rNode == null) p.next = lNode;
-
         return dummy.next;
     }
 }
