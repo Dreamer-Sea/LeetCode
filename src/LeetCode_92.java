@@ -1,10 +1,8 @@
 public class LeetCode_92 {
     public ListNode reverseBetween(ListNode head, int m, int n){
         if (head == null || m >= n) return head;
-
-        ListNode dummy = new ListNode(-1);
+        ListNode dummy = new ListNode(-1), pre = dummy;
         dummy.next = head;
-        ListNode pre = dummy;
         for (int i = 0; i < m - 1; i++){
             pre = pre.next;
         }
@@ -15,7 +13,6 @@ public class LeetCode_92 {
             pre.next = post;
             post = cur.next;
         }
-
         return dummy.next;
     }
 }
