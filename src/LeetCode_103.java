@@ -4,11 +4,12 @@ import java.util.List;
 public class LeetCode_103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root){
         List<List<Integer>> res = new ArrayList<>();
-        helper(root, res, 0);
+        if (root == null) return res;
+        dfs(root, res, 0);
         return res;
     }
 
-    private void helper(TreeNode root, List<List<Integer>> res, int level){
+    private void dfs(TreeNode root, List<List<Integer>> res, int level){
         if (root == null) return;
         if (level == res.size()) res.add(new ArrayList<>());
         if (level % 2 == 0){
@@ -16,7 +17,7 @@ public class LeetCode_103 {
         }else{
             res.get(level).add(0, root.val);
         }
-        helper(root.left, res, level+1);
-        helper(root.right, res, level+1);
+        dfs(root.left, res, level+1);
+        dfs(root.right, res, level+1);
     }
 }

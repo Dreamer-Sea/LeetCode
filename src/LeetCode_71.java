@@ -4,20 +4,19 @@ public class LeetCode_71 {
 
     public static void main(String[] args) {
         LeetCode_71 p = new LeetCode_71();
-        String path = "/home/";
-        System.out.println(p.simplifyPath(path));
+        p.simplifyPath("/home//foo/");
     }
 
     public String simplifyPath(String path){
-        if (path == null) return null;
-        String[] strs = path.split("/");
+        if (path.length() == 0 || path == null) return "/";
         Stack<String> stack = new Stack<>();
+        String[] strs = path.split("/");
         for (int i = 0; i < strs.length; i++){
-            if (!stack.isEmpty() && "..".equals(strs[i]))
+            if ("..".equals(strs[i]) && !stack.isEmpty()){
                 stack.pop();
-            else if (!"".equals(strs[i]) && !".".equals(strs[i]) && !"..".equals(strs[i]))
+            }else if (!"".equals(strs[i]) && !".".equals(strs[i]) && !"..".equals(strs[i])){
                 stack.push(strs[i]);
-
+            }
         }
         if (stack.isEmpty()) return "/";
         StringBuilder builder = new StringBuilder();
