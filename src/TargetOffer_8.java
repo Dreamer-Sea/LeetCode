@@ -1,4 +1,4 @@
-public class TragetOffer_8 {
+public class TargetOffer_8 {
     public int JumpFloor(int n) {
         if (n < 1) return 0;
         if (n == 1) return 1;
