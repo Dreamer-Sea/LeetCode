@@ -1,26 +1,21 @@
-import com.sun.xml.internal.txw2.annotation.XmlNamespace;
+import java.util.ArrayList;
 
 public class TargetOffer_51 {
-    public boolean match(char[] str, char[] pattern){
-        if (str == null && pattern == null) return true;
-        return matchCore(str, 0, pattern, 0);
-    }
-
-    private boolean matchCore(char[] str, int s, char[] pattern, int p){
-        if (s >= str.length && p >= pattern.length) return true;
-        if (s < str.length && p >= pattern.length) return false;
-        if (p+1 < pattern.length && pattern[p+1] == '*'){
-            if (s >= str.length && p < pattern.length) return matchCore(str, s, pattern, p+2);
-            if (str[s] == pattern[p] || pattern[p] == '.'){
-                return matchCore(str, s, pattern, p+2)
-                        || matchCore(str, s+1, pattern, p+2)
-                        || matchCore(str, s+1, pattern, p);
-            }else return matchCore(str, s, pattern, p+2);
+    public int[] multiply(int[] A) {
+        if (A == null || A.length == 0) return A;
+        int[] before = new int[A.length], after = new int[A.length];
+        before[0] = 1;
+        after[A.length - 1] = 1;
+        for (int i = 1; i < before.length; i++) {
+            before[i] = before[i - 1] * A[i - 1];
         }
-        if (s >= str.length) return false;
-        if (str[s] == pattern[p] || pattern[p] == '.'){
-            return matchCore(str, s+1, pattern, p+1);
+        for (int i = A.length - 2; i >= 0; i--) {
+            after[i] = after[i + 1] * A[i + 1];
         }
-        return false;
+        int[] res = new int[A.length];
+        for (int i = 0; i < A.length; i++) {
+            res[i] = before[i] * after[i];
+        }
+        return res;
     }
 }
