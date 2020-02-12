@@ -1,3 +1,5 @@
+package bean;
+
 public class TreeLinkNode {
     int val;
     TreeLinkNode left = null;

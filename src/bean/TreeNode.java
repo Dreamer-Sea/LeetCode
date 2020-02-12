@@ -1,3 +1,5 @@
+package bean;
+
 public class TreeNode {
     int val;
     TreeNode left;

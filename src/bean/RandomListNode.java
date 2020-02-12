@@ -1,3 +1,5 @@
+package bean;
+
 public class RandomListNode {
     int label;
     RandomListNode next = null;
