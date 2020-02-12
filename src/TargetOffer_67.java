@@ -1,5 +1,5 @@
 public class TargetOffer_67 {
-    public int cutRope(int n){
+    public int cutRope(int n) {
         int[] dp = {0, 1, 1};
         for (int i = 3; i < n + 1; i++){
             dp[i % 3] = max3(Math.max(dp[(i-1) % 3], i-1), 2 * Math.max(dp[(i-2) % 3], i-2), 3 * Math.max(dp[(i-3) % 3], i-3));
