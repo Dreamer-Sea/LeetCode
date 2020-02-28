@@ -11,9 +11,9 @@ public class Tencent_24 {
         return res;
     }
 
-    private void backtracking(List<List<Integer>> res, List<Integer> tmp, int[] nums, int idx){
+    private void backtracking(List<List<Integer>> res, List<Integer> tmp, int[] nums, int len){
         res.add(new ArrayList<>(tmp));
-        for (int i = idx; i < nums.length; i++){
+        for (int i = len; i < nums.length; i++){
             tmp.add(nums[i]);
             backtracking(res, tmp, nums, i+1);
             tmp.remove(tmp.size() - 1);
