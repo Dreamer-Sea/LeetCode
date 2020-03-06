@@ -2,7 +2,7 @@ package Tencent;
 
 import bean.TreeNode;
 
-public class LeetCode_43 {
+public class Tencent_43 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         int parentVal = root.val, pVal = p.val, qVal = q.val;
         if (parentVal < pVal && parentVal < qVal){
