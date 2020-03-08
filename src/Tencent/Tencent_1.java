@@ -4,9 +4,6 @@ import bean.ListNode;
 
 public class Tencent_1 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if (l1 == null && l2 == null) return null;
-        if (l1 == null) return l2;
-        if (l2 == null) return l1;
         int carry = 0, sum;
         ListNode dummy = new ListNode(-1), p = dummy;
         while (l1 != null || l2 != null || carry != 0){
