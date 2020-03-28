@@ -5,7 +5,7 @@ import bean.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Interviews_35 {
+public class Interviews_34 {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
